@@ -1,0 +1,248 @@
+
+html {
+  /* rem is relative to the fontsize of an element. The default fontsize on most browsers is 16px; */
+  
+    font-size: 62.5%;  /* 1rem = 10px */
+
+  /* this makes it a lot easier to calcute rem. 62.5% is 10/16 so our defualt fontsize is relative to user settings. defines what 1 rem is. So now, instead of 10px, we can write 1rem, Instead of 200px, we can write 20rem, etc..
+  
+  You don't have to use this trick, but it can make life a lot easier on us. On our media queries, we can just change the fontsize in our html styling, and everything using rem will change accordingly. Keep in mind that if you use this trick, you will need to specify the fontsize of all the text on your app.
+  */
+
+
+}
+
+
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.heading-primary {
+  text-align: center;
+  text-shadow: 0 2rem 3rem rgba(0,0,0,.5);
+  font-size: 3rem;
+}
+
+.heading-sub {
+  font-size: 2.5rem;
+  text-align: center;
+  color: seagreen;
+  display:none;
+}
+
+.about {
+  margin-top: 5rem;
+}
+
+.about__box--center {
+  width: 40%;
+  margin: auto;
+  padding: 2rem;
+  font-size: 2rem;
+  /* If  a measurement is below 10px, it is a little unnecessary to use rem. Less than 10px is so small that keeping the absolute measurement of px will not really affect our styling on different screen sizes   */
+  border-radius: 3px;
+  border: solid 2px black;
+}
+
+.btn {
+  margin: 2rem auto;
+  display: block;
+  text-decoration: none;
+  padding: 1rem;
+  background-color: rgb(93, 151, 216);
+  color: white;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  transition: .2s;
+  
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem .7rem rgba(0,0,0,.2);
+}
+
+.btn:active,
+.btn:focus {
+  transform: translateY(1px);
+  outline: none;
+  box-shadow: 0 .2rem .4rem rgba(0,0,0,.2);
+}
+
+
+.btn2{
+  display: none;
+}
+
+/* 
+
+It's extremely important to list your media queries in descending order of screen size. 
+
+Right now, we have media queries for 1200 and 900 px. If our screen width is 700px, then both conditions apply.
+
+If both apply, then there must be some kind of tie-breaker to determine which styles will be applied. That tie-breaker is which code was written last. 
+
+Therefore, we want our media queries in descending order, so that the most recent condtion that was hit, is the one that gets styled. 
+*/
+
+
+/* =============== YOUR WORK HERE =============== */
+@media (max-width: 1200px) {
+/* This makes it so that every element using rem will shrink a little bit as our screen size does.  */
+  html {
+    font-size: 55%;
+  }
+  .heading-primary{
+    color:rgb(39, 41, 211)
+  }
+  .about{
+    background-color: rgb(122, 8, 122);
+    margin: 0 180px;
+    padding: 5px 0;
+    
+  }
+  .about__box--center{
+  width: 94%;
+  background-color: orangered;
+  color:aliceblue;
+  }
+  .btn{
+    display:grid;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/*for 900 pixels screen size*/
+@media (max-width: 900px) {
+/* Set the font-size to 45% */
+.heading-primary{
+  color: rgb(122, 9, 175); 
+}
+.heading-sub{
+  display: block;
+  
+}
+.btn2{
+  margin: 2rem auto;
+  display: block;
+  text-decoration: none;
+  padding: 1rem;
+  background-color: rgb(238, 85, 85);
+  color: white;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  border: 1px solid white;
+  transition: .2s;
+  
+}
+
+.btn2:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem .7rem rgba(0,0,0,.2);
+}
+
+.btn2:active,
+.bt2n:focus {
+  transform: translateY(1px);
+  outline: none;
+  box-shadow: 0 .2rem .4rem rgba(0,0,0,.2);
+}
+.btn{
+  display:none;
+}
+.about__box--center {
+  background-color: yellow;
+  width: 91%;
+}
+.about{
+  margin: 0 25px; 
+ background-color: green;
+ padding: 15px 0;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+  /* For the colorful background, look up setting a background-image to a linear gradient in css */
+  .heading-primary{
+    color:white;
+  }
+  .heading-sub{
+    display: block;
+  }
+  .about{
+    padding: 5px 5px 12px 5px;
+    background-color:green;
+    margin: 10px;
+  
+  }
+  .about__box--center{
+    margin-top: 10px;
+    background-color:yellow;
+    padding:0 70px 10px ;
+    width:70%;
+    height: auto;
+    padding: 25 0;
+  }
+  .about__box--center p{
+    display: grid;
+    width: fit-content;
+    font-size: 19.5px;
+ }
+ .btn{
+  display: none;
+ }
+ .btn2{
+  display: block;
+ }
+
+ .btn2{
+  margin: 2rem auto;
+  display: block;
+  text-decoration: none;
+  padding: 1rem;
+  background-color: rgb(238, 85, 85);
+  color: white;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  border: 1px solid white;
+  transition: .2s;
+  
+}
+
+.btn2:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem .7rem rgba(0,0,0,.2);
+}
+
+.btn2:active,
+.bt2n:focus {
+  transform: translateY(1px);
+  outline: none;
+  box-shadow: 0 .2rem .4rem rgba(0,0,0,.2);
+}
+body{
+    background: linear-gradient(to Right,#bb0054, #8600bb );
+}
+
+}
